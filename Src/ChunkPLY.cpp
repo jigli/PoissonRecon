@@ -164,7 +164,7 @@ void WriteMesh( const char *fileName , int ft , VertexDataFactory vertexDataFact
 	char *ext = GetFileExtension( fileName );
 	if( strcasecmp( ext , "ply" ) ) ERROR_OUT( "Can only output mesh to .ply file" );
 	delete[] ext;
-
+#undef max
 	if( vertices.size()>std::numeric_limits< int >::max() )
 	{
 		if( vertices.size()>std::numeric_limits< unsigned int >::max() ) ERROR_OUT( "more vertices than can be indexed by an unsigned int: %llu" , (unsigned long long)vertices.size() );

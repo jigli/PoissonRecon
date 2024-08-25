@@ -458,7 +458,7 @@ void Execute( const AuxDataFactory &auxDataFactory )
 		}
 	};
 
-	if( Transform.set and envelopeMesh ) for( unsigned int i=0 ; i<envelopeMesh->vertices.size() ; i++ ) envelopeMesh->vertices[i] = toModel * envelopeMesh->vertices[i];
+	if( Transform.set /*and*/&& envelopeMesh ) for( unsigned int i=0 ; i<envelopeMesh->vertices.size() ; i++ ) envelopeMesh->vertices[i] = toModel * envelopeMesh->vertices[i];
 	if constexpr( HasAuxData )
 	{
 		_InputSampleWithDataStream sampleStream( *pointStream , auxDataFactory() );

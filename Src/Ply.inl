@@ -379,6 +379,7 @@ namespace PLY
 	template< typename VertexFactory , typename Index , class Real , int Dim , typename OutputIndex , bool UseCharIndex >
 	void Write( std::string fileName , const VertexFactory &vFactory , size_t vertexNum , size_t polygonNum , InputDataStream< typename VertexFactory::VertexType > &vertexStream , InputDataStream< std::vector< Index > > &polygonStream , int file_type , const std::vector< std::string > &comments )
 	{
+#undef max
 		if( vertexNum>(size_t)std::numeric_limits< OutputIndex >::max() )
 		{
 			if( std::is_same< Index , OutputIndex >::value ) ERROR_OUT( "more vertices than can be represented using " , Traits< Index >::name );
